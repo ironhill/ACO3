@@ -22,6 +22,12 @@ public class Arrays {
             return getDiapasoneEnd;
         }
 
+        public int getArrayLenght() {return arrayLenght;}
+
+        public void setArrayLenght(int arrayLenght) {
+            this.arrayLenght = arrayLenght;
+        }
+
         public void setGetDiapasoneEnd(int getDiapasoneEnd) {
             this.getDiapasoneEnd = getDiapasoneEnd;
         }
