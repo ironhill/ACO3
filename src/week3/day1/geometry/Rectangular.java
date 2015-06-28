@@ -1,4 +1,4 @@
-package week3.geometry;
+package week3.day1.geometry;
 
 /**
  * Created by Ihor Samanchuk on 22.06.2015.

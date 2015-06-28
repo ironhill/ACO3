@@ -9,6 +9,12 @@ import org.omg.CORBA.Object;
 public class IntArray {
     private int[] elements;
 
+    private static final int INT_ARRAY_DEFAULT_VALUE = 16;
+
+    public IntArray() {
+        elements = new int[INT_ARRAY_DEFAULT_VALUE ];
+    }
+
     public IntArray(int size) {
         elements = new int[size];
     }
@@ -26,7 +32,7 @@ public class IntArray {
         return result;
     }
 
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         return false;
     }
 }

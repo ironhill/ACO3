@@ -1,64 +1,54 @@
 package week2.homework;
 
+import org.omg.CORBA.*;
+
 /**
  * Created by Ihor Samanchuk on 21.06.2015.
  */
 public class Arrays {
-    public class ArrayClass {
 
-        private int diapasoneStart;
-        private int getDiapasoneEnd;
-        private int arrayLenght;
+    private int[] elements;
 
-        public int getDiapasoneStart() {
-            return diapasoneStart;
+    private static final int INT_ARRAY_DEFAULT_VALUE = 10;
+
+    public Arrays() {
+        elements = new int[INT_ARRAY_DEFAULT_VALUE];
+    }
+
+    public Arrays(int size) {
+        elements = new int[size];
+    }
+
+    public void addToArray(int value, int index) {
+        elements[index] = value;
+    }
+
+    public String toString() {
+        String result = "{";
+        for (int i = 0; i < elements.length - 1; i++) {
+            result += elements[i] + ", ";
         }
+        result += elements[elements.length - 1] + "}";
+        return result;
+    }
 
-        public void setDiapasoneStart(int diapasoneStart) {
-            this.diapasoneStart = diapasoneStart;
+    public void randomGenerate(int maxValue, int minValue) {
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = (int) (minValue + (Math.random() * (maxValue - minValue)));
         }
+    }
 
-        public int getGetDiapasoneEnd() {
-            return getDiapasoneEnd;
-        }
-
-        public int getArrayLenght() {return arrayLenght;}
-
-        public void setArrayLenght(int arrayLenght) {
-            this.arrayLenght = arrayLenght;
-        }
-
-        public void setGetDiapasoneEnd(int getDiapasoneEnd) {
-            this.getDiapasoneEnd = getDiapasoneEnd;
-        }
-
-        public ArrayClass(int arrayLenght, int diapasoneStart, int getDiapasoneEnd) {
-            this.arrayLenght = arrayLenght;
-            this.diapasoneStart = diapasoneStart;
-            this.getDiapasoneEnd = getDiapasoneEnd;
-        }
-
-        public void printArray(int[] array) {
-            for (int i = 0; i < array.length; i++) {
-                System.out.print(array[i] + " ");
+    public void findMinMax() {
+        int min = elements[0];
+        int max = elements[0];
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] < min) {
+                min = elements[i];
+            } else if (elements[i] > max) {
+                max = elements[i];
             }
         }
-
-        public int[] randomArray(int arrayLenght) {
-            int[] arrayRandom = new int[arrayLenght];
-            for (int i = 0; i < arrayRandom.length; i++) {
-                arrayRandom[i] = (int) (Math.random() * 10);
-            }
-            return arrayRandom;
-        }
-
-        public int[] ranDomArrayWithLimits(int arrayLenght, int startRandomValue, int endRandomValue) {
-            int[] randomArray = new int[arrayLenght];
-            for (int i = 0; i < randomArray.length; i++) {
-                randomArray[i] = (int) (startRandomValue + ((Math.random() * (endRandomValue - startRandomValue))));
-            }
-            return randomArray;
-        }
-
+        System.out.println("Max value: " + max);
+        System.out.println("Min value: " + min);
     }
 }
